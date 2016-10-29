@@ -54,7 +54,7 @@ namespace Parse.Internal {
 
       return subclassInfo == null
         ? type == typeof(ParseObject)
-        : subclassInfo.TypeInfo == type.GetTypeInfo();
+        : subclassInfo.TypeInfo.Equals(type.GetTypeInfo()) || subclassInfo.TypeInfo.IsSubclassOf(type);
     }
 
     public void RegisterSubclass(Type type) {
